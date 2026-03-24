@@ -1,0 +1,29 @@
+server:
+  listen: ":18080"
+  requestTimeoutSec: 30
+
+audit:
+  enabled: true
+  logPath: "/tmp/clawguard_audit.log"
+
+policy:
+  defaultAction: "ALLOW_REDACTED"
+  highSensitivityAction: "BLOCK"
+  ownerBypassUserIds: ["7997315413"]
+
+modelProxy:
+  enabled: false
+  targetURL: "http://127.0.0.1:8080/model"
+
+rules:
+  detectIPv4: true
+  detectIPv6: true
+  detectEmail: true
+  detectPhoneCN: true
+  detectJWT: true
+  detectBearer: true
+  detectAWSAccessKey: true
+  detectAWSSecretLike: true
+  detectKubeconfig: true
+  detectPrivateKey: true
+  detectPasswordKV: true
